@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Put, Param, Delete, NotFoundException, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, NotFoundException, ParseIntPipe, HttpCode, HttpStatus } from '@nestjs/common';
 import { UserService } from '../services/user.service';
 import { CreateUserDto } from '../dto/create-user.dto';
 import { UpdateUserDto } from '../dto/update-user.dto';
@@ -36,6 +36,7 @@ export class UserController {
   }
 
   @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
   remove(@Param('id', ParseIntPipe) id) {
     return this.userService.remove(id).catch((error) => {
       throw new NotFoundException(error.message)
