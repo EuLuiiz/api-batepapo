@@ -22,14 +22,14 @@ export class UserController {
   }
 
   @Get(':id')
-  findOne(@Param('id',ParseIntPipe) id) {
+  findOne(@Param('id', ParseIntPipe) id: number) {
     return this.userService.findOne(id).catch((error) => {
       throw new NotFoundException(error.message)
     });
   }
 
   @Put(':id')
-  update(@Param('id',ParseIntPipe) id, @Body() data: UpdateUserDto) {
+  update(@Param('id', ParseIntPipe) id: number, @Body() data: UpdateUserDto) {
     return this.userService.update(id, data).catch((error) => {
       throw new NotFoundException(error.message)
     });
@@ -37,9 +37,15 @@ export class UserController {
 
   @Delete(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
-  remove(@Param('id', ParseIntPipe) id) {
+  remove(@Param('id', ParseIntPipe) id: number) {
     return this.userService.remove(id).catch((error) => {
       throw new NotFoundException(error.message)
     });
+  }
+
+  @Delete(':userId/photos/:imageId')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  async deleteImage(@Param('userId', ParseIntPipe) userId: number, @Param('imageId', ParseIntPipe) imageId: number) {
+    return this.userService.deleteImage(userId, imageId);
   }
 }
