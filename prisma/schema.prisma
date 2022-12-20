@@ -1,0 +1,53 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int           @id @default(autoincrement())
+  nickname     String        @unique
+  email        String        @unique
+  password     String
+  bio          String?       @default("Olá, estou usando o Chat agora :)")
+  status       Status        @relation(fields: [id], references: [id])
+  profileImage String?
+  photos       Photo[]
+  //isAdmin      Boolean  @default(false)
+  createdAt    DateTime      @default(now())
+  ChatHistory  ChatHistory[]
+
+  @@map("users")
+}
+
+model Photo {
+  id       Int    @id @default(autoincrement())
+  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId   Int
+  imageUrl String
+
+  @@map("photos")
+}
+
+model ChatHistory {
+  id Int @id @default(autoincrement())
+  user     User   @relation(fields: [id], references: [id])
+  nickname String
+  message  String @db.VarChar(256)
+
+  @@map("chat_histories")
+}
+
+model Status {
+  id   Int    @id @default(autoincrement())
+  name String
+  User User[]
+
+  @@map("status")
+}
