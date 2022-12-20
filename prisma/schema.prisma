@@ -16,7 +16,6 @@ model User {
   email        String        @unique
   password     String
   bio          String?       @default("Olá, estou usando o Chat agora :)")
-  status       Status        @relation(fields: [id], references: [id])
   profileImage String?
   photos       Photo[]
   //isAdmin      Boolean  @default(false)
@@ -42,12 +41,4 @@ model ChatHistory {
   message  String @db.VarChar(256)
 
   @@map("chat_histories")
-}
-
-model Status {
-  id   Int    @id @default(autoincrement())
-  name String
-  User User[]
-
-  @@map("status")
 }
