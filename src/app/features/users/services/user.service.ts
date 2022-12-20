@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/app/core/database/prisma/prisma.service';
+import { hashPassword } from 'src/app/core/services/password/hashPassword';
 import { CreateUserDto } from '../dto/create-user.dto';
 import { UpdateUserDto } from '../dto/update-user.dto';
 
@@ -12,6 +13,7 @@ export class UserService {
     if (user) {
       throw Error("E-mail informado já cadastrado no sistema");
     }
+    data.password = await hashPassword(data.password)
     return await this._prisma.user.create({ data });
   }
 

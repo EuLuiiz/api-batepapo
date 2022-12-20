@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Put, Param, Delete, NotFoundException, ParseIntPipe } from '@nestjs/common';
 import { UserService } from '../services/user.service';
 import { CreateUserDto } from '../dto/create-user.dto';
 import { UpdateUserDto } from '../dto/update-user.dto';
@@ -8,27 +8,37 @@ export class UserController {
   constructor(private readonly userService: UserService) { }
 
   @Post()
-  create(@Body() createUserDto: CreateUserDto) {
-    return this.userService.create(createUserDto);
+  create(@Body() data: CreateUserDto) {
+    return this.userService.create(data).catch((error) => {
+      throw new NotFoundException(error.message)
+    });
   }
 
   @Get()
   findAll() {
-    return this.userService.findAll();
+    return this.userService.findAll().catch((error) => {
+      throw new NotFoundException(error.message)
+    });
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.userService.findOne(+id);
+  findOne(@Param('id',ParseIntPipe) id) {
+    return this.userService.findOne(id).catch((error) => {
+      throw new NotFoundException(error.message)
+    });
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.userService.update(+id, updateUserDto);
+  update(@Param('id',ParseIntPipe) id, @Body() data: UpdateUserDto) {
+    return this.userService.update(id, data).catch((error) => {
+      throw new NotFoundException(error.message)
+    });
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.userService.remove(+id);
+  remove(@Param('id', ParseIntPipe) id) {
+    return this.userService.remove(id).catch((error) => {
+      throw new NotFoundException(error.message)
+    });
   }
 }
