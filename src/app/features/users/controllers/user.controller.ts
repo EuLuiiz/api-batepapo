@@ -7,6 +7,7 @@ import { FindOneUserService } from '../services/findOne.user.service';
 import { UpdateUserService } from '../services/update.user.service';
 import { DeleteUserService } from '../services/delete.user.service';
 import { DeletePhotoUserService } from '../services/deletePhoto.user.service';
+import { IsPublic } from '../../auth/decorators/isPublic.decorator';
 
 
 @Controller('user')
@@ -20,6 +21,7 @@ export class UserController {
     private readonly _deletePhotoUserService: DeletePhotoUserService
   ) { }
 
+  @IsPublic()
   @Post()
   async create(@Body() data: CreateUserDto) {
     return this._createUserService.execute(data).catch((error) => {
