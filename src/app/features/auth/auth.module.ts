@@ -3,7 +3,8 @@ import { JwtModule } from '@nestjs/jwt';
 import { UserModule } from '../users/user.module';
 import { AuthController } from './controllers/auth.controller';
 import { LoginValidationMiddleware } from './middlewares/loginValidation.middleware';
-import { AuthService } from './services/auth.service';
+import { LoginAuthService } from './services/login.auth.service';
+import { ValidateUserAuthService } from './services/validateUser.auth.service';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { LocalStrategy } from './strategies/local.strategy';
 
@@ -15,7 +16,7 @@ import { LocalStrategy } from './strategies/local.strategy';
     }
   })],
   controllers: [AuthController],
-  providers: [AuthService, LocalStrategy, JwtStrategy]
+  providers: [LocalStrategy, JwtStrategy, LoginAuthService, ValidateUserAuthService]
 })
 
 export class AuthModule implements NestModule {

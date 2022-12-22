@@ -16,9 +16,7 @@ export class CreateUserDto extends User {
     @IsNotEmpty()
     @MinLength(6)
     @MaxLength(21)
-    @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {
-        message: 'password too weak',
-    })
+    //@Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, { message: 'password too weak' })
     password: string;
 
     @IsString()
