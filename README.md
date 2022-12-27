@@ -22,17 +22,22 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Descrição
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Um trabalho freelancer onde usei como oportunidade para me desafiar com os frameworks Socket.io, NestJS e Prisma.
+O objetivo era criar um bate-papo para uso particular e privado com alguns detalhes de segurança (como login) e ajustes escolhido pelo tal.
 
-## Installation
+## Instalação
 
 ```bash
 $ npm install
 ```
 
-## Running the app
+## Documentação
+
+Documentação em andamento...
+
+## Rodando a aplicação
 
 ```bash
 # development
@@ -45,29 +50,19 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## Testes
 
-```bash
-# unit tests
-$ npm run test
+Os testes ainda não foram configurados, mas está no roadmap
 
-# e2e tests
-$ npm run test:e2e
+## Suporte e atualização
 
-# test coverage
-$ npm run test:cov
-```
+O projeto ainda está incompleto, no planejamento ainda tem algumas opções mais avançadas para o Chat em si, implementação de mais segurança ao APP
 
-## Support
+## Contato
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+- Author - [EuLuiiz](https://github.com/EuLuiiz)
+- LinkedIn - [Victor Luiz](https://www.linkedin.com/in/victorluiz0/)
 
-## Stay in touch
+## Licença
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+O projeto é [MIT licensed](LICENSE).
