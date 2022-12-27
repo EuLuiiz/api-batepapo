@@ -18,7 +18,7 @@ model User {
   bio          String?       @default("Olá, estou usando o Chat agora :)")
   profileImage String?
   photos       Photo[]
-  //isAdmin      Boolean  @default(false)
+  isAdmin      Boolean       @default(false)
   createdAt    DateTime      @default(now())
   ChatHistory  ChatHistory[]
 
@@ -34,11 +34,14 @@ model Photo {
   @@map("photos")
 }
 
+// Não implementado, estudar sobre o LGPD para armazenar dados
+
 model ChatHistory {
-  id Int @id @default(autoincrement())
-  user     User   @relation(fields: [id], references: [id])
-  nickname String
-  message  String @db.VarChar(256)
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [id], references: [id])
+  nickname  String
+  message   String   @db.VarChar(256)
+  createdAt DateTime @default(now())
 
   @@map("chat_histories")
 }
