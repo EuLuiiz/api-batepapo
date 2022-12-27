@@ -5,7 +5,7 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+  <p align="center">Uma aplicação de Chat online ultilizando o NestJS, Prisma e Socket.io.</p>
     <p align="center">
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
@@ -52,11 +52,11 @@ $ npm run start:prod
 
 ## Testes
 
-Os testes ainda não foram configurados, mas está no roadmap
+Os testes ainda não foram configurados, mas está no roadmap.
 
 ## Suporte e atualização
 
-O projeto ainda está incompleto, no planejamento ainda tem algumas opções mais avançadas para o Chat em si, implementação de mais segurança ao APP
+O projeto ainda está incompleto, no planejamento ainda tem algumas opções mais avançadas para o Chat em si, implementação de mais segurança ao APP.
 
 ## Contato
 
