@@ -24,8 +24,8 @@
 
 ## Descrição
 
-Um trabalho freelancer onde usei como oportunidade para me desafiar com os frameworks Socket.io, NestJS e Prisma.
-O objetivo era criar um bate-papo para uso particular e privado com alguns detalhes de segurança (como login) e ajustes escolhido pelo tal.
+Um projeto onde usei como oportunidade para me desafiar com os frameworks Socket.io, NestJS e Prisma.
+O objetivo era criar um bate-papo para uso particular e privado com alguns detalhes de segurança (como login, segurança contra ataques, privacidade).
 
 ## Instalação
 
